@@ -1,44 +1,20 @@
 package co.nz.app.modules.login.fragments;
 
-
-
-
 import co.nz.app.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
- 
-/**
- * Login fragment
- * 
- *
- * 
- * 
- */
-
-
-
-public class LoginScreenFragment extends Fragment {
+public class SignUpScreenFragment extends Fragment {
 	
-	private Button SignUp;
-	private View rootView;
-	
-	  public LoginScreenFragment ()
-
-	  
-	    {
-		  
-		  
-		  
-		  
-	    }
-	
-	
+	public SignUpScreenFragment ( )
+	{
+		
+		
+		
+	}
 	
 	
 	 @Override
@@ -62,44 +38,15 @@ public class LoginScreenFragment extends Fragment {
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) 
 	    {
-	          rootView = inflater.inflate(R.layout.fragment_login_screen, container, false);
+	        View rootView = inflater.inflate(R.layout.fragment_signup, container, false);
 
 	        // Show the dummy content as text in a TextView.
 	       // if (mItem != null) {
 	          //  ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.content);
 	       // }
-	        InitialView( );
-	      
+
 	        return rootView;
 	    }
-	 
-	  void InitialView( )
-	  {
-		  
-		  SignUp=(Button)rootView.findViewById(R.id.button_SignUp);
-	       
-	       SignUp.setOnClickListener(
-			          new OnClickListener()
-			          {
-						@Override
-						public void onClick(View v) {
-							
-							SignUpScreenFragment fragment = new SignUpScreenFragment ( );
-							
-							//getActivity().getSupportFragmentManager().beginTransaction()
-						//	.
-							 getActivity().getSupportFragmentManager().beginTransaction()
-				                .add(R.id.item_detail_container, fragment)
-				                .commit();
-							 
-							 
-							
-						}
-			          }
-			        );
-
-		  
-	  }
 	 
 
 }

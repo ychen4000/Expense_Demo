@@ -17,6 +17,9 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         
         
+        
+       // Load the login page fragment into MainActivity layout
+     
         Bundle arguments = new Bundle();
        // arguments.putString(ItemDetailFragment.ARG_ITEM_ID,
               //  getIntent().getStringExtra(ItemDetailFragment.ARG_ITEM_ID));
