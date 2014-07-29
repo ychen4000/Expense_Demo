@@ -9,12 +9,13 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class SignUpScreenFragment extends Fragment {
+public class UnlockScreenFragment extends Fragment {
 	
 	private View rootView = null;
-	private Button Finish = null;
+	private Button MainMenu = null;
 	
-	public SignUpScreenFragment ( )
+	
+	public UnlockScreenFragment ( )
 	{
 		
 		
@@ -43,13 +44,11 @@ public class SignUpScreenFragment extends Fragment {
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) 
 	    {
-	        rootView = inflater.inflate(R.layout.fragment_signup, container, false);
+	        rootView = inflater.inflate(R.layout.fragment_unlockscreen, container, false);
 
-	        // Show the dummy content as text in a TextView.
-	       // if (mItem != null) {
-	          //  ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.content);
-	       // }
-
+	        InitialView( );
+	        
+	        
 	        return rootView;
 	    }
 	  
@@ -58,9 +57,9 @@ public class SignUpScreenFragment extends Fragment {
 	  void InitialView( )
 	  {
 		  
-		  Finish=(Button)rootView.findViewById(R.id.Button_Next);
+		  MainMenu = (Button)rootView.findViewById(R.id.button_MainMenu);
 	       
-	       Finish.setOnClickListener(
+	       MainMenu.setOnClickListener(
 			          new OnClickListener()
 			          {
 						@Override
@@ -68,14 +67,13 @@ public class SignUpScreenFragment extends Fragment {
 							
 							
 							//Replace the current fragment with a new fragment view 
-							LoginScreenFragment Newfragment = new LoginScreenFragment ( );
+					//		SignUpScreenFragment Newfragment = new SignUpScreenFragment ( );
 							
 							//getActivity().getSupportFragmentManager().beginTransaction()
 						//	.
-							 getActivity().getSupportFragmentManager().beginTransaction()
-							 .replace(R.id.item_detail_container, Newfragment)
-							  .addToBackStack(null)
-							 .commit();
+						//	 getActivity().getSupportFragmentManager().beginTransaction()
+						//	 .replace(R.id.item_detail_container, Newfragment)
+						//	 .commit();
 							 
 							 
 				               
@@ -88,6 +86,5 @@ public class SignUpScreenFragment extends Fragment {
 
 		  
 	  }
-	 
 
 }

@@ -26,7 +26,9 @@ import android.widget.Button;
 public class LoginScreenFragment extends Fragment {
 	
 	private Button SignUp;
+	private Button NoLogin;
 	private View rootView;
+
 	
 	  public LoginScreenFragment ()
 
@@ -73,10 +75,14 @@ public class LoginScreenFragment extends Fragment {
 	        return rootView;
 	    }
 	 
+	  
+	  
+	  // Initial the GUI Views and click listener 
 	  void InitialView( )
 	  {
 		  
 		  SignUp=(Button)rootView.findViewById(R.id.button_SignUp);
+		  NoLogin = (Button)rootView.findViewById(R.id.button_NoLogin);
 	       
 	       SignUp.setOnClickListener(
 			          new OnClickListener()
@@ -84,19 +90,52 @@ public class LoginScreenFragment extends Fragment {
 						@Override
 						public void onClick(View v) {
 							
-							SignUpScreenFragment fragment = new SignUpScreenFragment ( );
+							
+							//Replace the current fragment with a new fragment view 
+							SignUpScreenFragment Newfragment = new SignUpScreenFragment ( );
 							
 							//getActivity().getSupportFragmentManager().beginTransaction()
 						//	.
 							 getActivity().getSupportFragmentManager().beginTransaction()
-				                .add(R.id.item_detail_container, fragment)
-				                .commit();
+							 .replace(R.id.item_detail_container, Newfragment)
+							 .addToBackStack(null)
+							 .commit();
+							 
+							 
+				               
 							 
 							 
 							
 						}
 			          }
 			        );
+	       
+	       NoLogin.setOnClickListener(
+			          new OnClickListener()
+			          {
+						@Override
+						public void onClick(View v) {
+							
+							
+							//Replace the current fragment with a new fragment view 
+							UnlockScreenFragment Newfragment = new UnlockScreenFragment ( );
+							
+							//getActivity().getSupportFragmentManager().beginTransaction()
+						//	.
+							 getActivity().getSupportFragmentManager().beginTransaction()
+							 .replace(R.id.item_detail_container, Newfragment)
+							  .addToBackStack(null)
+							 .commit();
+							 
+							 
+				               
+							 
+							 
+							
+						}
+			          }
+			        );
+	       
 
 		  
 	  }
