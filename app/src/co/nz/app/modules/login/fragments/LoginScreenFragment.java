@@ -97,7 +97,7 @@ public class LoginScreenFragment extends Fragment {
 							//getActivity().getSupportFragmentManager().beginTransaction()
 						//	.
 							 getActivity().getSupportFragmentManager().beginTransaction()
-							 .replace(R.id.item_detail_container, Newfragment)
+							 .replace(R.id.flContainer, Newfragment)
 							 .addToBackStack(null)
 							 .commit();
 							 
@@ -123,7 +123,7 @@ public class LoginScreenFragment extends Fragment {
 							//getActivity().getSupportFragmentManager().beginTransaction()
 						//	.
 							 getActivity().getSupportFragmentManager().beginTransaction()
-							 .replace(R.id.item_detail_container, Newfragment)
+							 .replace(R.id.flContainer, Newfragment)
 							  .addToBackStack(null)
 							 .commit();
 							 

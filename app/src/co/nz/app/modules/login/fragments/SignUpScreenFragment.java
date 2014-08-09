@@ -73,7 +73,7 @@ public class SignUpScreenFragment extends Fragment {
 							//getActivity().getSupportFragmentManager().beginTransaction()
 						//	.
 							 getActivity().getSupportFragmentManager().beginTransaction()
-							 .replace(R.id.item_detail_container, Newfragment)
+							 .replace(R.id.flContainer, Newfragment)
 							  .addToBackStack(null)
 							 .commit();
 							 
