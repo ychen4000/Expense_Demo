@@ -1,10 +1,10 @@
-package co.nz.app;
+package co.nz.app.myobject;
 
 public class Account {
 	
 	private String AccountName;
 	
-	private Double Balance;
+	private Double Balance = (double) 0;
 	
 	
 	public Account ( )
