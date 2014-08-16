@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class ExpenseFragment extends Fragment{
@@ -21,6 +22,8 @@ public class ExpenseFragment extends Fragment{
 	private TextView[] Account = new TextView[10];
 	
 	private TextView[] Balance = new TextView[10];
+	
+	private RadioButton[] selectButton = new RadioButton[10];
 	
 	private int accountNo = 0;
 	
@@ -46,12 +49,22 @@ public class ExpenseFragment extends Fragment{
         
         
         AddAccount = (Button)v.findViewById(R.id.button_add_account);
-        Account[0] = (TextView)v.findViewById(R.id.textView_account1);
-        Balance[0] = (TextView)v.findViewById(R.id.textView_balance1);
-        Account[1] = (TextView)v.findViewById(R.id.TextView_account2);
-        Balance[1] = (TextView)v.findViewById(R.id.textView_balance2);
-        Account[2] = (TextView)v.findViewById(R.id.TextView_account3);
-        Balance[2] = (TextView)v.findViewById(R.id.textView_balance3);
+      
+        View accountview = v.findViewById(R.id.account_view1);
+        Account[0] = (TextView)accountview.findViewById(R.id.textView_accountname);
+        Balance[0] = (TextView)accountview.findViewById(R.id.textView_accountbalance);
+        accountview = v.findViewById(R.id.account_view2);
+        Account[1] = (TextView)accountview.findViewById(R.id.textView_accountname);
+        Balance[1] = (TextView)accountview.findViewById(R.id.textView_accountbalance);
+        accountview = v.findViewById(R.id.account_view3);
+        Account[2] = (TextView)accountview.findViewById(R.id.textView_accountname);
+        Balance[2] = (TextView)accountview.findViewById(R.id.textView_accountbalance);
+       /*  selectButton[0] = (RadioButton)v.findViewById(R.id.radioButton1);
+        selectButton[1] = (RadioButton)v.findViewById(R.id.radioButton2);
+        selectButton[2] = (RadioButton)v.findViewById(R.id.radioButton3);
+        */
+     
+        
         final Handler myHandler = new Handler( )
         {
         	@Override
@@ -59,6 +72,7 @@ public class ExpenseFragment extends Fragment{
         	{   int i = 0;
         		if (msg.what == 0x1233)
         		{
+        			
         			accountNo = MyDialogFragment.accountNo - 1;
         			
         			Log.w("JinLog", accountNo+"");
@@ -72,6 +86,7 @@ public class ExpenseFragment extends Fragment{
         		
         				if (accountNo == 2)
         				AddAccount.setClickable(false);
+        				
         			
         		}
         		

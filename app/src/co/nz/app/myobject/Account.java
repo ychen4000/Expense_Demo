@@ -6,6 +6,8 @@ public class Account {
 	
 	private Double Balance = (double) 0;
 	
+	private String AccountDes;
+	
 	
 	public Account ( )
 	{
@@ -39,6 +41,19 @@ public class Account {
 	public Double GetBalance ( )
 	{
 		return this.Balance;		
+		
+	}
+	
+	public void setAccountDescription (String description )
+	{
+		
+		this.AccountDes = description;
+	}
+	
+	public String getAccountDes ( )
+	{
+		return AccountDes;
+		
 		
 	}
 	
