@@ -11,26 +11,46 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <include
-            android:id="@+id/account_view1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            layout="@layout/account_view" />
+            android:layout_height="wrap_content"
+            android:layout_weight="0.61" >
 
-        <include
-            android:id="@+id/account_view2"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            layout="@layout/account_view" />
+            <ScrollView
+                android:id="@+id/scrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
-        <include
-            android:id="@+id/account_view3"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            layout="@layout/account_view" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <include
+                        android:id="@+id/account_view1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/account_view" />
+
+                    <include
+                        android:id="@+id/account_view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/account_view" />
+
+                    <include
+                        android:id="@+id/account_view3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/account_view" />
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,9 +72,62 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" >
+
+            <LinearLayout
+                android:id="@+id/linearlayout_category"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                
+                 <include
+                     android:id="@+id/category_view1"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     layout="@layout/account_view" />
+                 
+                  <include
+                      android:id="@+id/category_view2"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      layout="@layout/account_view" />
+                  
+                   <include
+                       android:id="@+id/category_view3"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       layout="@layout/account_view" />
+                
+            </LinearLayout>
+
+           
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make a payment" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical" >
     </LinearLayout>
 
     <LinearLayout

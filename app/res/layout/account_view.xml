@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="New Account name" />
+                android:text="New Account" />
 
             <TextView
                 android:id="@+id/textView_accountdescription"
