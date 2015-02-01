@@ -1,0 +1,27 @@
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\WindowsFormsAssignment5.exe.config
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\WindowsFormsAssignment5.exe
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\WindowsFormsAssignment5.pdb
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.csprojResolveAssemblyReference.cache
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.Form1.resources
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.Properties.Resources.resources
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.csproj.GenerateResource.Cache
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.exe
+d:\用户目录\我的文档\visual studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.pdb
+D:\用户目录\我的文档\Visual Studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.FormAddStudent.resources
+D:\用户目录\我的文档\Visual Studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.FormAddNewPaper.resources
+D:\用户目录\我的文档\Visual Studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\ClassLibrary1.dll
+D:\用户目录\我的文档\Visual Studio 2013\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\ClassLibrary1.pdb
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\WindowsFormsAssignment5.exe.config
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.exe
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.pdb
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.Mainpage.resources
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.FormAddNewPaper.resources
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.FormAddStudent.resources
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.Properties.Resources.resources
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.csproj.GenerateResource.Cache
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\WindowsFormsAssignment5.exe
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\WindowsFormsAssignment5.pdb
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\ClassLibrary1.dll
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\ClassLibrary1.pdb
+C:\Users\Administrator\Dropbox\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.PapersEnrollList.resources
