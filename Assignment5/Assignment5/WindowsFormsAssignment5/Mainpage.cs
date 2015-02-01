@@ -18,6 +18,7 @@ namespace WindowsFormsAssignment5
         String _SelectedPapers = null;
         String _SelectedStudentID = null;
         String _SelectedStudentName = null;
+        Boolean IfSelected = false;
         MyClassLibrary.StudentList _MyStudentList = new MyClassLibrary.StudentList();  // Current shown Student list 
         
         public Mainpage()
@@ -51,6 +52,7 @@ namespace WindowsFormsAssignment5
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Int32 selectedRowCount = dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            IfSelected = true;
             if (selectedRowCount > 0)
             {
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
@@ -339,9 +341,17 @@ namespace WindowsFormsAssignment5
 
         private void buttonEnrollpaper_Click(object sender, EventArgs e)
         {
-            PapersEnrollList form = new PapersEnrollList(_SelectedPapers, _SelectedStudentID,_SelectedStudentName);
-            form.Owner = this; // link new form with this form. 
-            form.ShowDialog();
+            if (IfSelected == true)
+            {
+                PapersEnrollList form = new PapersEnrollList(_SelectedPapers, _SelectedStudentID, _SelectedStudentName);
+                form.Owner = this; // link new form with this form. 
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a student first");
+
+            }
         }
 
         public void ShowStudentList ( )
