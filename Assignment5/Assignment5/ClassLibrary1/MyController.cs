@@ -85,6 +85,29 @@ namespace MyClassLibrary
 
         }
 
+        public void SaveNewPaper(Paper _NewPaper,String _Route)
+        {
+            try
+            {
+                System.Data.OleDb.OleDbConnection MyConnection;
+                System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+                string sql = null;
+                String _DefaultStudentListRoute = _Route;
+                MyConnection = new System.Data.OleDb.OleDbConnection("provider=Microsoft.Jet.OLEDB.4.0;Data Source='" + _DefaultStudentListRoute + "';Extended Properties=Excel 8.0;");
+                MyConnection.Open();
+                myCommand.Connection = MyConnection;
+                sql = "Insert into [Sheet1$] ([Name],[Paper Code],[Course Coordinator],[Enrolled Student],[id]) values('" + _NewPaper.GetPaperName() + "','" + _NewPaper.GetPaperCode() + "','" + _NewPaper.GetCoordinator() + "','Null','Null')";
+                myCommand.CommandText = sql;
+                myCommand.ExecuteNonQuery();
+                MyConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.ToString());
+            }
+
+        }
+
       
     }
 }

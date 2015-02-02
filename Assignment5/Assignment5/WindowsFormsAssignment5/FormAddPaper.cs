@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyClassLibrary;
 
 namespace WindowsFormsAssignment5
 {
@@ -17,16 +18,20 @@ namespace WindowsFormsAssignment5
             InitializeComponent();
         }
 
-        private void labelPaperCode_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonCreateNewPaper_Click(object sender, EventArgs e)
         {
+            Paper _NewPaper = new Paper();
+            _NewPaper.SetPaperName(textBoxPaperName.Text);
+            _NewPaper.SetPaperCode(textBoxPaperCode.Text);
+            _NewPaper.SetCoordinator(textBoxCourseCoordinator.Text);
+
+            Mainpage _MyMainpage = (Mainpage)this.Owner;
+
+            _MyMainpage.ShowPaperList();
+           
 
         }
-
        
     }
 }

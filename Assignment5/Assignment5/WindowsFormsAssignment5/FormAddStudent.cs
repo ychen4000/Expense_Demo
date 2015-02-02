@@ -65,6 +65,11 @@ namespace WindowsFormsAssignment5
              this.Close();
         }
 
+        private void labelName_Click(object sender, EventArgs e)
+        {
+
+        }
+
        
     }
 }

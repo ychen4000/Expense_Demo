@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.labelPaperName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.labelPaperCode = new System.Windows.Forms.Label();
+            this.textBoxPaperName = new System.Windows.Forms.TextBox();
             this.textBoxPaperCode = new System.Windows.Forms.TextBox();
             this.labelCourseCoordinator = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxCourseCoordinator = new System.Windows.Forms.TextBox();
             this.buttonCreateNewPaper = new System.Windows.Forms.Button();
+            this.labelPaperCode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelPaperName
@@ -46,22 +46,12 @@
             this.labelPaperName.TabIndex = 0;
             this.labelPaperName.Text = "Paper Name";
             // 
-            // textBox1
+            // textBoxPaperName
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 21);
-            this.textBox1.TabIndex = 1;
-            // 
-            // labelPaperCode
-            // 
-            this.labelPaperCode.AutoSize = true;
-            this.labelPaperCode.Location = new System.Drawing.Point(25, 83);
-            this.labelPaperCode.Name = "labelPaperCode";
-            this.labelPaperCode.Size = new System.Drawing.Size(65, 12);
-            this.labelPaperCode.TabIndex = 2;
-            this.labelPaperCode.Text = "Paper Code";
-            this.labelPaperCode.Click += new System.EventHandler(this.labelPaperCode_Click);
+            this.textBoxPaperName.Location = new System.Drawing.Point(144, 37);
+            this.textBoxPaperName.Name = "textBoxPaperName";
+            this.textBoxPaperName.Size = new System.Drawing.Size(197, 21);
+            this.textBoxPaperName.TabIndex = 1;
             // 
             // textBoxPaperCode
             // 
@@ -79,12 +69,12 @@
             this.labelCourseCoordinator.TabIndex = 4;
             this.labelCourseCoordinator.Text = "Course Coordinator";
             // 
-            // textBox2
+            // textBoxCourseCoordinator
             // 
-            this.textBox2.Location = new System.Drawing.Point(144, 130);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 21);
-            this.textBox2.TabIndex = 5;
+            this.textBoxCourseCoordinator.Location = new System.Drawing.Point(144, 130);
+            this.textBoxCourseCoordinator.Name = "textBoxCourseCoordinator";
+            this.textBoxCourseCoordinator.Size = new System.Drawing.Size(197, 21);
+            this.textBoxCourseCoordinator.TabIndex = 5;
             // 
             // buttonCreateNewPaper
             // 
@@ -96,17 +86,26 @@
             this.buttonCreateNewPaper.UseVisualStyleBackColor = true;
             this.buttonCreateNewPaper.Click += new System.EventHandler(this.buttonCreateNewPaper_Click);
             // 
+            // labelPaperCode
+            // 
+            this.labelPaperCode.AutoSize = true;
+            this.labelPaperCode.Location = new System.Drawing.Point(27, 83);
+            this.labelPaperCode.Name = "labelPaperCode";
+            this.labelPaperCode.Size = new System.Drawing.Size(65, 12);
+            this.labelPaperCode.TabIndex = 7;
+            this.labelPaperCode.Text = "Paper Code";
+            // 
             // FormAddNewPaper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 306);
+            this.Controls.Add(this.labelPaperCode);
             this.Controls.Add(this.buttonCreateNewPaper);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxCourseCoordinator);
             this.Controls.Add(this.labelCourseCoordinator);
             this.Controls.Add(this.textBoxPaperCode);
-            this.Controls.Add(this.labelPaperCode);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPaperName);
             this.Controls.Add(this.labelPaperName);
             this.Name = "FormAddNewPaper";
             this.Text = "Add New Paper";
@@ -118,11 +117,11 @@
         #endregion
 
         private System.Windows.Forms.Label labelPaperName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label labelPaperCode;
+        private System.Windows.Forms.TextBox textBoxPaperName;
         private System.Windows.Forms.TextBox textBoxPaperCode;
         private System.Windows.Forms.Label labelCourseCoordinator;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxCourseCoordinator;
         private System.Windows.Forms.Button buttonCreateNewPaper;
+        private System.Windows.Forms.Label labelPaperCode;
     }
 }

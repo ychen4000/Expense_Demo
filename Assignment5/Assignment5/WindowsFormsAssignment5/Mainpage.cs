@@ -85,26 +85,14 @@ namespace WindowsFormsAssignment5
                 }
                 
                 
-                
-               // MessageBox.Show(dataGridView.SelectedRows[0].Cells["Paper enrolled"].Value.ToString());
-                     
-             //   }
-                
-                   // for (int i = 0; i < selectedRowCount; i++)
-                 //   {
-                      //  sb.Append("Row: ");
-                      //  sb.Append(dataGridView.SelectedRows[i].Index.ToString());
-                     //   sb.Append(Environment.NewLine);
-                  //  }                
-
-              //  sb.Append("Total: " + selectedRowCount.ToString());
-               // MessageBox.Show(sb.ToString(), "Selected Rows");
+             
             }
         }
 
         private void addNewPaperToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAddNewPaper form = new FormAddNewPaper();
+            form.Owner = this; // link new form with this form. 
             form.ShowDialog();
         }
 
@@ -123,10 +111,7 @@ namespace WindowsFormsAssignment5
 
         private void showPaperListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _ReadExcelToDataGrideView(Application.StartupPath + "\\DefaultPapers");  // Read the excel file into DatagridView 
-            _CurrentPage = "PapersList";
-            buttonEnrollStudent.Visible = true;
-            buttonEnrollpaper.Visible = false;
+            ShowPaperList();
         }
 
         private void saveWorkingListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,6 +174,17 @@ namespace WindowsFormsAssignment5
                 MessageBox.Show(ex.ToString());
             }
 
+            if (_CurrentPage == "PapersList")
+            {
+                DataGridViewCell cell = dataGridView[4, dataGridView.Rows.Count - 1]; // get the current last paer id number. 
+            }
+
+            if (_CurrentPage == "StudentList")
+            {
+
+            }
+
+
         }
 
 
@@ -204,10 +200,7 @@ namespace WindowsFormsAssignment5
                 MyClassLibrary.Student _Student = new MyClassLibrary.Student();
 
                 for (int j = 0; j < cell; j++)//得到总列数并在之内循环 
-                {
-                    
-                      
-                       
+                {         
                         dataGridView.CurrentCell = dataGridView[j, i];//定位到相同的单元格 
                        
                     
@@ -356,11 +349,20 @@ namespace WindowsFormsAssignment5
 
         public void ShowStudentList ( )
         {
-
+             _CurrentPage = "StudentList"; // show current page is student list
             _ReadExcelToDataGrideView(Application.StartupPath + "\\DefaultDB");  // Read the excel file into DatagridView 
             buttonEnrollStudent.Visible = false;
             buttonEnrollpaper.Visible = true;
-            _CurrentPage = "StudentList";
+            
+        }
+
+        public void ShowPaperList( )
+        {   _CurrentPage = "PapersList"; // show current page is paper list 
+            _ReadExcelToDataGrideView(Application.StartupPath + "\\DefaultPapers");  // Read the excel file into DatagridView 
+            
+            buttonEnrollStudent.Visible = true;
+            buttonEnrollpaper.Visible = false;
+
         }
     }
 }
