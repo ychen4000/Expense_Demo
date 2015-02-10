@@ -44,11 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PapersEnrollList.cs">
+    <Compile Include="PapersList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PapersEnrollList.Designer.cs">
-      <DependentUpon>PapersEnrollList.cs</DependentUpon>
+    <Compile Include="PapersList.Designer.cs">
+      <DependentUpon>PapersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentList.Designer.cs">
+      <DependentUpon>StudentList.cs</DependentUpon>
     </Compile>
     <Compile Include="Mainpage.cs">
       <SubType>Form</SubType>
@@ -70,8 +76,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PapersEnrollList.resx">
-      <DependentUpon>PapersEnrollList.cs</DependentUpon>
+    <EmbeddedResource Include="PapersList.resx">
+      <DependentUpon>PapersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentList.resx">
+      <DependentUpon>StudentList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mainpage.resx">
       <DependentUpon>Mainpage.cs</DependentUpon>

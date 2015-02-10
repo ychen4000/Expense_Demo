@@ -18,14 +18,19 @@ namespace WindowsFormsAssignment5
         String _SelectedPapers = null;
         String _SelectedStudentID = null;
         String _SelectedStudentName = null;
+        String _LastPaperID = null;
+        String _LastStudentID = null;
         Boolean IfSelected = false;
         MyClassLibrary.StudentList _MyStudentList = new MyClassLibrary.StudentList();  // Current shown Student list 
-        
+
+        public event DataGridViewCellEventHandler CellContentClick;
+
+
         public Mainpage()
         {
             InitializeComponent();
 
-  
+            
             _ReadExcelToDataGrideView(Application.StartupPath + "\\DefaultDB");  // Read the excel file into DatagridView 
               
             _SaveStudentDataGridViewData();
@@ -51,6 +56,8 @@ namespace WindowsFormsAssignment5
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            MessageBox.Show("test");
+            //dataGridView.CellMouseClick
             Int32 selectedRowCount = dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
             IfSelected = true;
             if (selectedRowCount > 0)
@@ -177,6 +184,7 @@ namespace WindowsFormsAssignment5
             if (_CurrentPage == "PapersList")
             {
                 DataGridViewCell cell = dataGridView[4, dataGridView.Rows.Count - 1]; // get the current last paer id number. 
+                cell.Value.ToString();
             }
 
             if (_CurrentPage == "StudentList")
@@ -308,7 +316,7 @@ namespace WindowsFormsAssignment5
 
         }
 
-        public void ReturnStudentList (StudentList _UpdatedStudentList )
+        public void ReturnStudentList (StudentsList _UpdatedStudentList )
         {
             this._MyStudentList = _UpdatedStudentList;
 

@@ -16,7 +16,7 @@ namespace WindowsFormsAssignment5
     public partial class FormAddStudent : Form
     {
 
-        MyClassLibrary.StudentList _StudentList = new StudentList();
+        MyClassLibrary.StudentList _StudentList = new StudentsList();
         public FormAddStudent(MyClassLibrary.StudentList _StudentListFromMain)
         {
             InitializeComponent();
