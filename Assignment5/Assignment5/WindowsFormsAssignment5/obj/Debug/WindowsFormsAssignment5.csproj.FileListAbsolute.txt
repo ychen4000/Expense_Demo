@@ -29,7 +29,6 @@ D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\Window
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.exe
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.pdb
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.csprojResolveAssemblyReference.cache
-D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.PapersEnrollList.resources
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.Mainpage.resources
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.FormAddNewPaper.resources
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.FormAddStudent.resources
@@ -39,3 +38,5 @@ D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\Window
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\WindowsFormsAssignment5.pdb
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\ClassLibrary1.dll
 D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\bin\Debug\ClassLibrary1.pdb
+D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.PapersList.resources
+D:\Expense_Demo\Assignment5\Assignment5\WindowsFormsAssignment5\obj\Debug\WindowsFormsAssignment5.StudentsList.resources

@@ -14,9 +14,9 @@ namespace MyClassLibrary
         // Initiallise a student list dictionary to store current student list(what opened, and what we edit)
         private Dictionary<String, Student> _MyStudenlist = new Dictionary<String, Student>();
 
-        DataTable _StudentTable = new DataTable("Table_Student");
+      //  DataTable _StudentTable = new DataTable("Table_Student");
 
-        int columnIndex = 0;
+      //  int columnIndex = 0;
     
         public StudentList ( )
         {
@@ -28,9 +28,9 @@ namespace MyClassLibrary
         {
             _MyStudenlist.Add(_ID, _StudentGoingToAdd);
 
-            _StudentTable.Columns.Add("column" + columnIndex + "", System.Type.GetType("System.String"));
+          //  _StudentTable.Columns.Add("column" + columnIndex + "", System.Type.GetType("System.String"));
 
-            columnIndex++;
+           // columnIndex++;
 
         }
 
@@ -61,10 +61,10 @@ namespace MyClassLibrary
             return _ID;
         }
 
-        public void CopyDatatable (DataTable _Datatable )
-        {
-            _StudentTable = _Datatable.Copy();
+      //  public void CopyDatatable (DataTable _Datatable )
+     //   {
+      //      _StudentTable = _Datatable.Copy();
 
-        }
+      //  }
     }
 }

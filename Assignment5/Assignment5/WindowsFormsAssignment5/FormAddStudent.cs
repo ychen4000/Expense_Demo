@@ -16,7 +16,7 @@ namespace WindowsFormsAssignment5
     public partial class FormAddStudent : Form
     {
 
-        MyClassLibrary.StudentList _StudentList = new StudentsList();
+        MyClassLibrary.StudentList _StudentList = new  MyClassLibrary.StudentList();
         public FormAddStudent(MyClassLibrary.StudentList _StudentListFromMain)
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace WindowsFormsAssignment5
              Mainpage _MyMainpage = (Mainpage)this.Owner;
 
              _MyMainpage.Refresh(this._StudentList.GetAllStudent());
-             _MyMainpage.ReturnStudentList(_StudentList);
+        //     _MyMainpage.ReturnStudentList(_StudentList);
 
             // add the student into defualt student excel list
              try

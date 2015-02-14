@@ -18,26 +18,27 @@ namespace WindowsFormsAssignment5
         String _SelectedPapers = null;
         String _SelectedStudentID = null;
         String _SelectedStudentName = null;
-        String _LastPaperID = null;
-        String _LastStudentID = null;
+      //  String _LastPaperID = null;
+       // String _LastStudentID = null;
         Boolean IfSelected = false;
         MyClassLibrary.StudentList _MyStudentList = new MyClassLibrary.StudentList();  // Current shown Student list 
+        MyClassLibrary.PapersList _MyPapersList = new MyClassLibrary.PapersList();  // Current shown Student list 
 
-        public event DataGridViewCellEventHandler CellContentClick;
+       
 
 
         public Mainpage()
         {
             InitializeComponent();
-
+            _CurrentPage = "StudentList";
             
-            _ReadExcelToDataGrideView(Application.StartupPath + "\\DefaultDB");  // Read the excel file into DatagridView 
+            _ReadExcelToList(Application.StartupPath + "\\DefaultDB");  // Read the excel file into DatagridView 
               
-            _SaveStudentDataGridViewData();
+         //   _SaveStudentDataGridViewData();
             
-            _CurrentPage = "StudentList";  // Mark the current page is student list
+          //  _CurrentPage = "StudentList";  // Mark the current page is student list
 
-            buttonEnrollStudent.Visible = false;
+         //   buttonEnrollStudent.Visible = false;
 
           //  MessageBox.Show("test");
         }
@@ -154,14 +155,18 @@ namespace WindowsFormsAssignment5
                 //以消息框的形式显示文件名。
                MessageBox.Show("You have opened :  " + _MyExcelRoute.ToString());
 
-               _ReadExcelToDataGrideView(_MyExcelRoute.ToString());
+               _ReadExcelToList(_MyExcelRoute.ToString());
              
 
             }
         }
 
-        private void _ReadExcelToDataGrideView (String _Route )
+
+        // Read excel file into dictionary list. The lists will be the temp storage for papers and students, 
+        // all the data will be saved into excel again after click save button on GUI menue button. 
+        private void _ReadExcelToList (String _Route )
         {
+            DataTable _TempTable = null;
             try
             {
                 System.Data.OleDb.OleDbConnection MyConnection;
@@ -172,7 +177,8 @@ namespace WindowsFormsAssignment5
                 MyCommand.TableMappings.Add("Table", "TestTable");
                 DtSet = new System.Data.DataSet();
                 MyCommand.Fill(DtSet);
-                dataGridView.DataSource = DtSet.Tables[0];
+               // dataGridView.DataSource = DtSet.Tables[0];
+                _TempTable = DtSet.Tables[0];
                 dataGridView.ReadOnly = true;
                 MyConnection.Close();
             }
@@ -181,70 +187,130 @@ namespace WindowsFormsAssignment5
                 MessageBox.Show(ex.ToString());
             }
 
+          
+
             if (_CurrentPage == "PapersList")
             {
-                DataGridViewCell cell = dataGridView[4, dataGridView.Rows.Count - 1]; // get the current last paer id number. 
-                cell.Value.ToString();
-            }
+              //  DataGridViewCell cell = dataGridView[4, dataGridView.Rows.Count - 1]; // get the current last paer id number. 
+              //  cell.Value.ToString();
 
-            if (_CurrentPage == "StudentList")
-            {
+                // Convert datatable to paper list. 
+                for (int i = 0; i < _TempTable.Rows.Count; i++)
+                {
+                    MyClassLibrary.Paper _Paper = new Paper();
 
-            }
-
-
-        }
-
-
-        // Saved all the data shown in the gridview list, for editing. 
-        private void _SaveStudentDataGridViewData ( )  //  http://bbs.csdn.net/topics/350259459
-        {
-            
-            int row = dataGridView.Rows.Count;//得到总行数 
-            int cell = dataGridView.Rows[1].Cells.Count;//得到总列数
-
-            for (int i = 0; i < row-1; i++)//得到总行数并在之内循环 
-            {
-                MyClassLibrary.Student _Student = new MyClassLibrary.Student();
-
-                for (int j = 0; j < cell; j++)//得到总列数并在之内循环 
-                {         
-                        dataGridView.CurrentCell = dataGridView[j, i];//定位到相同的单元格 
-                       
-                    
-                      //  MessageBox.Show(dataGridView.CurrentCell.Value.ToString());
+                    for (int j = 0; j < _TempTable.Columns.Count; j++)
+                    {
+                        // MessageBox.Show( _TempTable.Rows[i][j].ToString());
 
                         int caseSwitch = j;
                         switch (caseSwitch)
                         {
                             case 0:
-                                _Student.SetName(dataGridView.CurrentCell.Value.ToString());
+                                _Paper.SetPaperName(_TempTable.Rows[i][j].ToString());
                                 break;
                             case 1:
-                                _Student.SetDOB(dataGridView.CurrentCell.Value.ToString());
+                                _Paper.SetPaperCode(_TempTable.Rows[i][j].ToString());
                                 break;
                             case 2:
-                                _Student.SetIDNumber(dataGridView.CurrentCell.Value.ToString());
+                                _Paper.SetCoordinator(_TempTable.Rows[i][j].ToString());
                                 break;
                             case 3:
-                                _Student.SetAddress(dataGridView.CurrentCell.Value.ToString());
+                                if (_TempTable.Rows[i][j].ToString() == "Null")
+                                {
+
+
+                                }
+                                else
+                                {
+                                    String[] _EnrolledStudents = _TempTable.Rows[i][j].ToString().Split(new Char[] { ';' });
+
+                                    foreach (String _Student in _EnrolledStudents)
+                                    {
+                                        String[] _IDAndName = _Student.Split(new Char[]{','});
+                                        Student _InsertStudent = new Student();
+                                        _InsertStudent.SetIDNumber(_IDAndName[0]);
+                                        _InsertStudent.SetName(_IDAndName[1]);
+                                        _Paper.AddEnrolledStudent(_InsertStudent);
+                                    }
+                                }
+
                                 break;
                             case 4:
-                                _Student.SetPapers(dataGridView.CurrentCell.Value.ToString());
+                                _Paper.SetPaperID(_TempTable.Rows[i][j].ToString());
                                 break;
                             default:
                                 Console.WriteLine("Default case");
                                 break;
                         }
-                    
-                    
+                    }
+
+                    _MyPapersList.AddPaper(_Paper.GetIDNumber(), _Paper);
+
                 }
 
-                _MyStudentList.AddStudent(_Student.GetIDNumber(), _Student);
+            }
+
+            if (_CurrentPage == "StudentList")
+            {
+                // Convert datatable to student list. 
+                for (int i = 0; i < _TempTable.Rows.Count; i++)
+                {
+                    MyClassLibrary.Student _Student = new Student();
+                   
+                    for (int j = 0; j < _TempTable.Columns.Count; j++)
+                    {
+                      // MessageBox.Show( _TempTable.Rows[i][j].ToString());
+
+                       int caseSwitch = j;
+                       switch (caseSwitch)
+                       {
+                           case 0:
+                               _Student.SetName(_TempTable.Rows[i][j].ToString());
+                               break;
+                           case 1:
+                               _Student.SetDOB(_TempTable.Rows[i][j].ToString());
+                               break;
+                           case 2:
+                               _Student.SetIDNumber(_TempTable.Rows[i][j].ToString());
+                               break;
+                           case 3:
+                               _Student.SetAddress(_TempTable.Rows[i][j].ToString());
+                               break;
+                           case 4:
+                               _Student.SetPapers(_TempTable.Rows[i][j].ToString());
+                               break;
+                           default:
+                               Console.WriteLine("Default case");
+                               break;
+                       }
+                    }
+
+                    _MyStudentList.AddStudent(_Student.GetIDNumber(), _Student);
+
+                }
+
             }
 
 
         }
+
+
+        private void _ShowStudentListDataOnDataGrideView ( )
+        {
+
+
+
+        }
+
+        private void _ShowPapersListDataOnDataGrideVoew ( )
+        {
+
+
+        }
+
+
+        
 
 
         public void Refresh (Dictionary<String,Student> _MyStudentList )
@@ -318,7 +384,7 @@ namespace WindowsFormsAssignment5
 
         public void ReturnStudentList (StudentsList _UpdatedStudentList )
         {
-            this._MyStudentList = _UpdatedStudentList;
+          //  this._MyStudentList = _UpdatedStudentList;
 
         }
 
@@ -344,9 +410,9 @@ namespace WindowsFormsAssignment5
         {
             if (IfSelected == true)
             {
-                PapersEnrollList form = new PapersEnrollList(_SelectedPapers, _SelectedStudentID, _SelectedStudentName);
-                form.Owner = this; // link new form with this form. 
-                form.ShowDialog();
+              //  PapersEnrollList form = new PapersEnrollList(_SelectedPapers, _SelectedStudentID, _SelectedStudentName);
+             //   form.Owner = this; // link new form with this form. 
+             //   form.ShowDialog();
             }
             else
             {
@@ -358,7 +424,7 @@ namespace WindowsFormsAssignment5
         public void ShowStudentList ( )
         {
              _CurrentPage = "StudentList"; // show current page is student list
-            _ReadExcelToDataGrideView(Application.StartupPath + "\\DefaultDB");  // Read the excel file into DatagridView 
+            _ReadExcelToList(Application.StartupPath + "\\DefaultDB");  // Read the excel file into DatagridView 
             buttonEnrollStudent.Visible = false;
             buttonEnrollpaper.Visible = true;
             
@@ -366,7 +432,7 @@ namespace WindowsFormsAssignment5
 
         public void ShowPaperList( )
         {   _CurrentPage = "PapersList"; // show current page is paper list 
-            _ReadExcelToDataGrideView(Application.StartupPath + "\\DefaultPapers");  // Read the excel file into DatagridView 
+            _ReadExcelToList(Application.StartupPath + "\\DefaultPapers");  // Read the excel file into DatagridView 
             
             buttonEnrollStudent.Visible = true;
             buttonEnrollpaper.Visible = false;
