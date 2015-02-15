@@ -13,6 +13,7 @@ namespace MyClassLibrary
         private String _ID = null;
         private String _Address = null;
         private String _Papers = null;
+        private PapersList _EnrolledPapers = new PapersList();
 
         public Student (String _name, String _dob, String _id, String _address, String _papers )
         {
@@ -87,7 +88,46 @@ namespace MyClassLibrary
         {
 
            this._Papers = _papers;
+
+           if (_papers == "Null")
+           {
+
+
+           }
+           else
+           {
+               String[] _PapersList = _papers.Split(new Char[] { ';' });
+
+               foreach (String Paper in _PapersList)
+               {
+                   Paper _Paper = new Paper();
+
+                   String[] _IDAndName = Paper.Split(new Char[] { ',' });
+
+                   _Paper.SetPaperID(_IDAndName[0]);
+                   _Paper.SetPaperCode(_IDAndName[1]);
+
+                   _EnrolledPapers.AddPaper(_IDAndName[0], _Paper);
+
+
+               }
+           }
+
         }
+
+        public void AddEnrolledPaper (Paper _Paper )
+        {
+            _EnrolledPapers.AddPaper(_Paper.GetIDNumber(), _Paper);
+
+        }
+
+        public PapersList GetEnrolledPapers ( )
+        {
+
+            return _EnrolledPapers;
+        }
+
+       
 
 
 

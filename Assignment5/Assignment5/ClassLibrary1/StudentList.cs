@@ -43,7 +43,7 @@ namespace MyClassLibrary
         public Student GetStudentByID (String _id )
         {
 
-            return _MyStudenlist[_id];
+            return _MyStudenlist[_id.Trim()];
         }
 
         public String GetNewIDNumber( )
@@ -59,6 +59,12 @@ namespace MyClassLibrary
            _ID = _NewID + "";
 
             return _ID;
+        }
+
+        public int GetStudentNumber ( )
+        {
+
+            return _MyStudenlist.Count;
         }
 
       //  public void CopyDatatable (DataTable _Datatable )

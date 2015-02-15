@@ -30,15 +30,18 @@ namespace WindowsFormsAssignment5
         public Mainpage()
         {
             InitializeComponent();
-            _CurrentPage = "StudentList";
+            _CurrentPage = "StudentList";  // Mark the current page is student list
+
+          
             
-            _ReadExcelToList(Application.StartupPath + "\\DefaultDB");  // Read the excel file into DatagridView 
-              
+            _ReadExcelToList(Application.StartupPath + "\\DefaultDB");  // Read the excel file into student list
+             
+            _ShowStudentListDataOnDataGrideView(); // show student list on datagridview
          //   _SaveStudentDataGridViewData();
             
-          //  _CurrentPage = "StudentList";  // Mark the current page is student list
+         
 
-         //   buttonEnrollStudent.Visible = false;
+             buttonEnrollStudent.Visible = false;  // hide enroll student with selected paper button. 
 
           //  MessageBox.Show("test");
         }
@@ -75,13 +78,11 @@ namespace WindowsFormsAssignment5
             //    {
                     // show selected papers at attach datagridview
                 if (_CurrentPage == "StudentList")
-                {   // get the enrolled papers and ID for selected student. 
-                     _SelectedPapers = dataGridView.SelectedRows[0].Cells["Paper enrolled"].Value.ToString();
-                     _SelectedStudentID = dataGridView.SelectedRows[0].Cells["ID"].Value.ToString();
-                     _SelectedStudentName = dataGridView.SelectedRows[0].Cells["Name"].Value.ToString();
-                    String[] PaperList = _SelectedPapers.Split(new Char[] { ',' });
-                    _ShowSelectedPapersInRightGridView(PaperList); // show the papers in right datagridview of the GUI. 
-
+                {   
+                    // get the student ID and enrolled papers for selected student. 
+                    String SelectedStudentID = dataGridView.SelectedRows[0].Cells["ID"].Value.ToString();
+                    Student _CurrentStudent = _MyStudentList.GetStudentByID(SelectedStudentID);
+                    MyClassLibrary.PapersList _EnrolledStudentList = _CurrentStudent.GetEnrolledPapers();
                     
 
                 }
@@ -89,7 +90,7 @@ namespace WindowsFormsAssignment5
                 {
                     String _SelectedPapers = dataGridView.SelectedRows[0].Cells["Enrolled Student"].Value.ToString();
                     String[] PaperList = _SelectedPapers.Split(new Char[] { ',' });
-                    _ShowSelectedPapersInRightGridView(PaperList);
+                  //  _ShowSelectedPapersInRightGridView(PaperList);
                 }
                 
                 
@@ -298,9 +299,30 @@ namespace WindowsFormsAssignment5
 
         private void _ShowStudentListDataOnDataGrideView ( )
         {
+            // clear all the rows. 
+            this.dataGridView.Rows.Clear();
+            
+            // set up colmns name
+            dataGridView.Columns[0].HeaderCell.Value = "Name";
+            dataGridView.Columns[1].HeaderCell.Value = "Birthday";
+            dataGridView.Columns[2].HeaderCell.Value = "ID";
+            dataGridView.Columns[3].HeaderCell.Value = "Address";
+            dataGridView.Columns[4].HeaderCell.Value = "Paper enrolled"; 
 
 
+            // insert data row into datagridview
 
+            for (int index = 0; index < _MyStudentList.GetStudentNumber();index++ )
+            {
+                Student _Student = _MyStudentList.GetStudentByID(index + 1 + "");
+                this.dataGridView.Rows.Add(); // add new row
+              //  this.dataGridView.Columns.Add("AutoSizeMode");
+                this.dataGridView.Rows[index].Cells[0].Value = _Student.GetName();
+                this.dataGridView.Rows[index].Cells[1].Value = _Student.GetDOB();
+                this.dataGridView.Rows[index].Cells[2].Value = _Student.GetIDNumber();
+                this.dataGridView.Rows[index].Cells[3].Value = _Student.GetAddress();
+                this.dataGridView.Rows[index].Cells[4].Value = _Student.GetPapers();
+            }
         }
 
         private void _ShowPapersListDataOnDataGrideVoew ( )

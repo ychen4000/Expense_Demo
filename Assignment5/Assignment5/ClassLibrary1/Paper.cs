@@ -13,7 +13,7 @@ namespace MyClassLibrary
         String _PaperCode = null;
         String _Coordinator = null;
         String _ID = null;
-        StudentList _Studentlist = null; 
+       StudentList _Studentlist = null; 
 
         public Paper ( )
         {
@@ -48,15 +48,15 @@ namespace MyClassLibrary
 
         public void AddEnrolledStudent(Student _Student)
         {
-            this._Studentlist.AddStudent(_Student.GetIDNumber(), _Student);
+        //    this._Studentlist.AddStudent(_Student.GetIDNumber(), _Student);
 
         }
 
-        public StudentList GetAllEnrolledStudents ( )
-        {
+      //  public StudentList GetAllEnrolledStudents ( )
+      //  {
 
-            return this._Studentlist;
-        }
+       //     return this._Studentlist;
+      //  }
 
         public String GetPaperName()
         {

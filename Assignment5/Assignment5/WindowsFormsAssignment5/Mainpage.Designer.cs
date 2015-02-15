@@ -45,6 +45,13 @@
             this.dataGridViewRight = new System.Windows.Forms.DataGridView();
             this.buttonEnrollpaper = new System.Windows.Forms.Button();
             this.buttonEnrollStudent = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRight)).BeginInit();
@@ -55,6 +62,12 @@
             this.dataGridView.AllowUserToOrderColumns = true;
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.dataGridView.Location = new System.Drawing.Point(32, 73);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 23;
@@ -169,10 +182,13 @@
             // 
             this.dataGridViewRight.AllowUserToOrderColumns = true;
             this.dataGridViewRight.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRight.Location = new System.Drawing.Point(649, 73);
+            this.dataGridViewRight.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Name});
+            this.dataGridViewRight.Location = new System.Drawing.Point(642, 73);
             this.dataGridViewRight.Name = "dataGridViewRight";
             this.dataGridViewRight.RowTemplate.Height = 23;
-            this.dataGridViewRight.Size = new System.Drawing.Size(237, 315);
+            this.dataGridViewRight.Size = new System.Drawing.Size(244, 315);
             this.dataGridViewRight.TabIndex = 2;
             // 
             // buttonEnrollpaper
@@ -193,6 +209,41 @@
             this.buttonEnrollStudent.TabIndex = 4;
             this.buttonEnrollStudent.Text = "Enroll Student into selected paper";
             this.buttonEnrollStudent.UseVisualStyleBackColor = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Column4";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Column5";
+            this.Column5.Name = "Column5";
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
             // 
             // Mainpage
             // 
@@ -236,6 +287,13 @@
         private System.Windows.Forms.ToolStripMenuItem openWorkingListToolStripMenuItem;
         private System.Windows.Forms.Button buttonEnrollpaper;
         private System.Windows.Forms.Button buttonEnrollStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
 
     }
 }
