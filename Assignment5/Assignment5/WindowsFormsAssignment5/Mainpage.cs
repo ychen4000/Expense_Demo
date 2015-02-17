@@ -68,7 +68,7 @@ namespace WindowsFormsAssignment5
             {
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-                 
+                MessageBox.Show("test >0");
                 if (selectedRowCount > 1)
                 {
                     MessageBox.Show("Please select one row at a time");
@@ -80,9 +80,11 @@ namespace WindowsFormsAssignment5
                 if (_CurrentPage == "StudentList")
                 {   
                     // get the student ID and enrolled papers for selected student. 
-                    String SelectedStudentID = dataGridView.SelectedRows[0].Cells["ID"].Value.ToString();
-                    Student _CurrentStudent = _MyStudentList.GetStudentByID(SelectedStudentID);
-                    MyClassLibrary.PapersList _EnrolledStudentList = _CurrentStudent.GetEnrolledPapers();
+                             String SelectedStudentID = dataGridView.SelectedRows[0].Cells[2].Value.ToString();
+                            Student _CurrentStudent = _MyStudentList.GetStudentByID(SelectedStudentID);
+                             MyClassLibrary.PapersList _EnrolledStudentList = _CurrentStudent.GetEnrolledPapers();
+
+                             _ShowSelectedStudentEnrolledPapersIntoRightGridView(_EnrolledStudentList);
                     
 
                 }
@@ -425,6 +427,33 @@ namespace WindowsFormsAssignment5
             }
 
             dataGridViewRight.DataSource = _MyDT;
+
+        }
+
+        private void _ShowSelectedStudentEnrolledPapersIntoRightGridView ( MyClassLibrary.PapersList _EnrrolledPaperList )
+        {
+
+            // clear 
+
+            dataGridViewRight.Rows.Clear();
+             // set up columns name
+                dataGridViewRight.Columns[0].HeaderCell.Value = "Paper ID";
+                dataGridViewRight.Columns[1].HeaderCell.Value = "Paper Name";
+
+            // insert papers into gridview 
+
+                Dictionary<String, MyClassLibrary.Paper> _PapersList = _EnrrolledPaperList.GetAllPapers();   // Return all the papers in enrolled paper list, and does not know the paper ID. Just get them one by one. 
+                int index = 0;
+
+                foreach (KeyValuePair<String, MyClassLibrary.Paper> _Paper in _PapersList)
+                {
+                    this.dataGridViewRight.Rows.Add(); // add new row
+                    this.dataGridViewRight.Rows[index].Cells[0].Value = _Paper.Key;
+                    this.dataGridViewRight.Rows[index].Cells[1].Value = _Paper.Value.GetPaperCode();
+                    index++;
+
+                }
+          
 
         }
 

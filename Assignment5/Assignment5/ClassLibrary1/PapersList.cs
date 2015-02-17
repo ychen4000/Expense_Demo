@@ -31,7 +31,7 @@ namespace MyClassLibrary
             return this._MyPapersList;
         }
 
-        public Paper GetStudentByID(String _id)
+        public Paper GetPaperByID(String _id) // get paper by paper's ID, not key in _MyPaperList
         {
 
             return _MyPapersList[_id];
@@ -51,5 +51,12 @@ namespace MyClassLibrary
 
             return _ID;
         }
+
+        public int GetCount( )
+        {
+            return _MyPapersList.Count();
+        }
+
+      
     }
 }
